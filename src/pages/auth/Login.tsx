@@ -31,9 +31,9 @@ export default function Login() {
     <div className="flex min-h-screen flex-col items-center justify-center app-bg px-5">
       {/* Logo */}
       <div className="mb-8 text-center animate-fade-in">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl"
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl overflow-hidden"
           style={{ background: 'linear-gradient(135deg, #FF6B35, #E91E8C)' }}>
-          <span className="text-2xl">🥗</span>
+          <img src="/pwa-192x192.png" alt="NutriTrack AI Logo" className="h-full w-full object-cover" />
         </div>
         <h1 className="text-2xl font-bold gradient-text">NUTRITRACK AI</h1>
         <p className="mt-1 text-sm text-secondary">INDIAN DIET · AI POWERED</p>

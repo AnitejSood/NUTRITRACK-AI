@@ -70,9 +70,9 @@ export default function Register() {
     <div className="flex min-h-screen flex-col items-center justify-center app-bg px-5 py-10">
       {/* Logo */}
       <div className="mb-6 text-center">
-        <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-3xl"
+        <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-3xl overflow-hidden"
           style={{ background: 'linear-gradient(135deg, #FF6B35, #E91E8C)' }}>
-          <span className="text-2xl">🥗</span>
+          <img src="/pwa-192x192.png" alt="NutriTrack AI Logo" className="h-full w-full object-cover" />
         </div>
         <h1 className="text-xl font-bold gradient-text">CREATE ACCOUNT</h1>
         <p className="mt-1 text-xs text-secondary">START YOUR NUTRITION JOURNEY</p>
