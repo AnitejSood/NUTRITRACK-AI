@@ -166,6 +166,7 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid var(--border);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   /* App header */
@@ -174,6 +175,8 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
+    padding-top: calc(12px + env(safe-area-inset-top));
+    padding-bottom: 12px;
   }
 
   /* Soft overlay background — replaces hardcoded rgba(255,255,255,0.04) */
@@ -186,7 +189,9 @@
 
   /* FAB */
   .fab {
-    @apply fixed bottom-20 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-2xl;
+    @apply fixed z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-2xl;
+    right: 20px;
+    bottom: calc(96px + env(safe-area-inset-bottom));
     background: linear-gradient(135deg, #FF6B35, #E91E8C);
     box-shadow: 0 8px 24px rgba(255,107,53,0.5);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -209,7 +214,12 @@
   .app-bg { background: var(--bg); }
 
   /* Page padding */
-  .page-pad { @apply px-4 pb-28 pt-16; }
+  .page-pad {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: calc(112px + env(safe-area-inset-bottom));
+    padding-top: calc(76px + env(safe-area-inset-top));
+  }
 
   /* Animated ring stroke */
   .ring-animate {

@@ -71,7 +71,7 @@ export default function Dashboard() {
       {/* ── Progress Rings Row ────────────────────────────── */}
       <div className="card">
         <p className="text-xs font-semibold text-secondary uppercase tracking-wide mb-4">Macros & Water</p>
-        <div className="flex items-start justify-around gap-2">
+        <div className="grid grid-cols-4 gap-2 justify-items-center">
           <ProgressRing
             value={totals.protein}
             max={goals?.protein ?? 150}

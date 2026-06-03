@@ -36,9 +36,9 @@ export function ProgressRing({
   }, [])
 
   return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="relative" style={{ width: size, height: size }}>
-        <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+    <div className="flex flex-col items-center gap-1.5 w-full min-w-0">
+      <div className="relative w-full aspect-square" style={{ maxWidth: size }}>
+        <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-full" style={{ transform: 'rotate(-90deg)' }}>
           {/* Track */}
           <circle
             cx={size / 2}
@@ -69,21 +69,21 @@ export function ProgressRing({
 
         {/* Center label */}
         {showCenter && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-lg font-bold leading-none text-primary">
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-1 text-center">
+            <span className="text-sm sm:text-base md:text-lg font-bold leading-none text-primary truncate max-w-full">
               {Math.round(value)}
             </span>
             {unit && (
-              <span className="text-[10px] text-secondary mt-0.5">{unit}</span>
+              <span className="text-[8px] sm:text-[10px] text-secondary mt-0.5 truncate max-w-full">{unit}</span>
             )}
           </div>
         )}
       </div>
 
       {/* Ring label */}
-      <div className="text-center">
-        <p className="text-xs font-semibold text-primary">{label}</p>
-        <p className="text-[10px] text-secondary">of {Math.round(max)}{unit}</p>
+      <div className="text-center w-full min-w-0">
+        <p className="text-xs font-semibold text-primary truncate">{label}</p>
+        <p className="text-[10px] text-secondary truncate">of {Math.round(max)}{unit}</p>
       </div>
     </div>
   )

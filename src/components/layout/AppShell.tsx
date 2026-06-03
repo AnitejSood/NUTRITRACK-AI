@@ -19,7 +19,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen app-bg">
       {/* Top header */}
-      <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 app-header">
+      <header className="fixed top-0 left-0 right-0 z-40 px-4 app-header">
         <div className="flex items-center justify-between max-w-md mx-auto">
           <div>
             <p className="text-xs text-secondary">Good {getGreeting()}</p>

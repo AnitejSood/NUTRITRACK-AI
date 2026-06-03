@@ -112,7 +112,7 @@ export default function ProfileSetup() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col app-bg px-5 py-10">
+    <div className="flex min-h-screen flex-col app-bg px-5 pt-[calc(20px+env(safe-area-inset-top))] pb-[calc(40px+env(safe-area-inset-bottom))]">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold gradient-text">SET UP PROFILE</h1>

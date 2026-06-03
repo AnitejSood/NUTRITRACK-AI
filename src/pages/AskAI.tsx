@@ -63,16 +63,16 @@ export default function AskAI() {
         border: '1px solid rgba(255,107,53,0.2)',
       }}>
         <p className="section-label mb-3">Remaining Today</p>
-        <div className="grid grid-cols-4 gap-2 text-center">
+        <div className="grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
           {[
             { label: 'Calories', val: Math.round(remaining.calories), unit: 'kcal', color: '#FF6B35' },
             { label: 'Protein', val: Math.round(remaining.protein), unit: 'g', color: '#E91E8C' },
             { label: 'Carbs', val: Math.round(remaining.carbs), unit: 'g', color: '#FFE66D' },
             { label: 'Fat', val: Math.round(remaining.fat), unit: 'g', color: '#4ECDC4' },
           ].map(({ label, val, unit, color }) => (
-            <div key={label} className="rounded-2xl p-3" style={{ background: 'var(--overlay-soft)' }}>
+            <div key={label} className="rounded-2xl py-2.5 px-1 sm:p-3" style={{ background: 'var(--overlay-soft)' }}>
               <p className="text-[10px] text-secondary">{label}</p>
-              <p className="text-lg font-bold" style={{ color }}>{val}</p>
+              <p className="text-base sm:text-lg font-bold" style={{ color }}>{val}</p>
               <p className="text-[9px] text-secondary">{unit}</p>
             </div>
           ))}
@@ -132,16 +132,16 @@ export default function AskAI() {
             </div>
 
             {/* Macros grid */}
-            <div className="grid grid-cols-4 gap-2 mb-4 text-center">
+            <div className="grid grid-cols-4 gap-1.5 sm:gap-2 mb-4 text-center">
               {[
                 { label: 'Calories', val: recommendation.calories, unit: 'kcal', color: '#FF6B35' },
                 { label: 'Protein', val: recommendation.protein, unit: 'g', color: '#E91E8C' },
                 { label: 'Carbs', val: recommendation.carbs, unit: 'g', color: '#FFE66D' },
                 { label: 'Fat', val: recommendation.fat, unit: 'g', color: '#4ECDC4' },
               ].map(({ label, val, unit, color }) => (
-                <div key={label} className="rounded-2xl p-2.5" style={{ background: 'var(--overlay-medium)' }}>
+                <div key={label} className="rounded-2xl py-2.5 px-1 sm:p-2.5" style={{ background: 'var(--overlay-medium)' }}>
                   <p className="text-[9px] text-secondary">{label}</p>
-                  <p className="text-base font-bold" style={{ color }}>{val}</p>
+                  <p className="text-sm sm:text-base font-bold" style={{ color }}>{val}</p>
                   <p className="text-[9px] text-secondary">{unit}</p>
                 </div>
               ))}
