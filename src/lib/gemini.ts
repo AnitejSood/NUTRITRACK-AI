@@ -1,8 +1,8 @@
 // Gemini API helper — structured JSON only
-// Uses gemini-2.5-flash (free tier)
+// Uses gemini-3.1-flash-lite (free tier)
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY as string
-const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent'
+const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent'
 
 export interface FoodItem {
   name: string
@@ -48,6 +48,7 @@ async function callGemini(prompt: string): Promise<string> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
+      tools: [{ google_search: {} }], // Enable Web Search Grounding
       generationConfig: {
         temperature: 0.3,
         topP: 0.8,
