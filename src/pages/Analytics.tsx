@@ -31,8 +31,16 @@ export default function Analytics() {
   // Aggregate per day
   const dailyData = useMemo(() => {
     return DAYS.map((day, idx) => {
-      const dayMeals = meals.filter(m => m.timestamp.startsWith(day))
-      const dayWater = waterLogs.filter(w => w.timestamp.startsWith(day))
+      const dayMeals = meals.filter(m => {
+        const d = new Date(m.timestamp)
+        const localDate = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+        return localDate === day
+      })
+      const dayWater = waterLogs.filter(w => {
+        const d = new Date(w.timestamp)
+        const localDate = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+        return localDate === day
+      })
 
       const calories = dayMeals.reduce((s, m) => s + (m.calories ?? 0), 0)
       const protein = dayMeals.reduce((s, m) => s + (m.protein ?? 0), 0)

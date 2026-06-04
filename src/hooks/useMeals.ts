@@ -36,12 +36,14 @@ export function useTodayMeals() {
     queryKey: ['meals', user?.id, today],
     enabled: !!user,
     queryFn: async () => {
+      const start = new Date(`${today}T00:00:00`).toISOString()
+      const end = new Date(`${today}T23:59:59.999`).toISOString()
       const { data, error } = await supabase
         .from('meals')
         .select('*, meal_items(*)')
         .eq('user_id', user!.id)
-        .gte('timestamp', `${today}T00:00:00`)
-        .lte('timestamp', `${today}T23:59:59`)
+        .gte('timestamp', start)
+        .lte('timestamp', end)
         .order('timestamp', { ascending: true })
       if (error) throw error
       return data as Meal[]
@@ -56,12 +58,14 @@ export function useMealsByDate(date: string) {
     queryKey: ['meals', user?.id, date],
     enabled: !!user && !!date,
     queryFn: async () => {
+      const start = new Date(`${date}T00:00:00`).toISOString()
+      const end = new Date(`${date}T23:59:59.999`).toISOString()
       const { data, error } = await supabase
         .from('meals')
         .select('*, meal_items(*)')
         .eq('user_id', user!.id)
-        .gte('timestamp', `${date}T00:00:00`)
-        .lte('timestamp', `${date}T23:59:59`)
+        .gte('timestamp', start)
+        .lte('timestamp', end)
         .order('timestamp', { ascending: true })
       if (error) throw error
       return data as Meal[]
@@ -76,12 +80,14 @@ export function useMealsRange(startDate: string, endDate: string) {
     queryKey: ['meals-range', user?.id, startDate, endDate],
     enabled: !!user,
     queryFn: async () => {
+      const start = new Date(`${startDate}T00:00:00`).toISOString()
+      const end = new Date(`${endDate}T23:59:59.999`).toISOString()
       const { data, error } = await supabase
         .from('meals')
         .select('*')
         .eq('user_id', user!.id)
-        .gte('timestamp', `${startDate}T00:00:00`)
-        .lte('timestamp', `${endDate}T23:59:59`)
+        .gte('timestamp', start)
+        .lte('timestamp', end)
         .order('timestamp', { ascending: true })
       if (error) throw error
       return data as Meal[]
